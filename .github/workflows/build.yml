@@ -27,3 +27,4 @@ jobs:
 
       - name: run zoo
         run: java -jar target/zoo-1.0-SNAPSHOT.jar
+        working-directory: target
