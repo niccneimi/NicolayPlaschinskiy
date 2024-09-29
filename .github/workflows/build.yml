@@ -30,3 +30,6 @@ jobs:
         with:
           name: zoo.jar
           path: target/zoo-1.0-SNAPSHOT.jar
+      - name: Run .jar file
+        run:
+          java -jar target/zoo-1.0-SNAPSHOT.jar
