@@ -20,6 +20,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'maven'
+      
+      - name: Set up Maven
+        uses: mvn/setup-maven@v1
+        with:
+          maven-version: '3.8.1'
 
       - name: Build and package
         run: |
