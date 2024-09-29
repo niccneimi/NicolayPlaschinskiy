@@ -13,19 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Maven
-        uses: actions/setup-maven@v1
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
+          distribution: 'maven'
 
       - name: Build and package
         run: |
           mvn clean package
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: zoo.jar
           path: target/zoo-1.0-SNAPSHOT.jar
