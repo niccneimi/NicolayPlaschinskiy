@@ -1,0 +1,28 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Maven
+        uses: actions/setup-maven@v1
+        with:
+          java-version: '17'
+
+      - name: Build and package
+        run: |
+          mvn clean package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: zoo.jar
+          path: target/zoo-1.0-SNAPSHOT.jar
