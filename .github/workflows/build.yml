@@ -26,5 +26,4 @@ jobs:
         run: mvn package
 
       - name: run zoo
-        run: java -jar target/zoo-1.0-SNAPSHOT.jar
-        working-directory: target
+        run: java -jar my-test-project-1.0-SNAPSHOT-shaded.jar
