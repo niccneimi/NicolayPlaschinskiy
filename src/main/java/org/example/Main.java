@@ -1,3 +1,5 @@
+package org.example;
+
 interface Walkable {
     void walk();
 }
