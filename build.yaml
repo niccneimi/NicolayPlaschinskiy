@@ -1,0 +1,26 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+      - name: Run Maven verify
+        run: mvn clean verify
+      - name: Run Maven exec:java
+        if: success()
+        run: mvn exec:java -Dexec.mainClass="main.java.main.Main"
+      - name: Run Maven test
+        if: success()
+        run: mvn test
